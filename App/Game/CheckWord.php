@@ -8,10 +8,10 @@ class CheckWord
 {
     public static function checkWord($guessWord, $soluceWord){
 
-        $upperGuessWord = strtoupper($guessWord);
+        $lowerGuessWord = strtolower($guessWord);
 
         $arrSoluce = str_split($soluceWord);
-        $arrGuess = str_split($upperGuessWord);
+        $arrGuess = str_split($lowerGuessWord);
 
         $arrSoluce_count = array_count_values($arrSoluce);
         $arrGuess_count = array_count_values($arrGuess);
@@ -34,6 +34,6 @@ class CheckWord
         }
 
         echo $result;
-        return $result;
+        
     }
 }
