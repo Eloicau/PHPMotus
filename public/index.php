@@ -8,10 +8,9 @@ use App\EventsListener\IsAdmin;
 use App\EventsListener\IsDebug;
 */
 use App\Infra\EventsDispatcher\Dispatcher;
-use App\Infra\EventsDispatcher\Events\RouterEvent;
-use App\Infra\EventsDispatcher\Events\ControllerEvent;
 use App\Infra\EventsDispatcher\Events\ContentEvent;
-
+use App\Infra\EventsDispatcher\Events\ControllerEvent;
+use App\Infra\EventsDispatcher\Events\RouterEvent;
 use App\Routing\Router;
 
 /*
@@ -19,12 +18,12 @@ $cookie_word = "";
 $cookie_active = 0;
 
 */
-spl_autoload_register(function($fqcn) {
+spl_autoload_register(function ($fqcn): void {
     $path = str_replace('\\', '/', $fqcn);
-    require_once (__DIR__.'/../'.$path.'.php');
+    require_once __DIR__.'/../'.$path.'.php';
 });
 
-//define('APP_ENV', 'dev');
+// define('APP_ENV', 'dev');
 
 $eventDispatcher = new Dispatcher();
 $eventDispatcher->addListeners();

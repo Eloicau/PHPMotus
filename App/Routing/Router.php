@@ -6,33 +6,31 @@ namespace App\Routing;
 
 use App\Controller\Controller;
 use App\Controller\Error404;
-use App\Controller\Motus;
 use App\Controller\Game;
-
+use App\Controller\Motus;
 
 class Router
 {
     private array $routes = [
         '/' => Motus::class,
         '/404' => Error404::class,
-        '/game' => Game::class
-
+        '/game' => Game::class,
     ];
 
     private static string $path;
 
     private static ?Router $router = null;
-    //private static ?array $user = null;
+    // private static ?array $user = null;
 
     private function __construct()
     {
         self::$path = $_SERVER['PATH_INFO'] ?? '/';
-        //self::$user = $_SESSION['user'] ?? null;
+        // self::$user = $_SESSION['user'] ?? null;
     }
 
-    public static function getFromGlobals(): Router
+    public static function getFromGlobals(): self
     {
-        if (self::$router === null) {
+        if (null === self::$router) {
             self::$router = new self();
         }
 
