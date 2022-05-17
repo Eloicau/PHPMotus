@@ -6,7 +6,7 @@ namespace App\Controller;
 
 class Motus implements Controller
 {
-    public function render()
+    public function render(): void
     {
         echo 'Bienvenue sur Motus';
     }

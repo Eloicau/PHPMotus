@@ -6,7 +6,7 @@ namespace App\Infra\Memory;
 
 class LoadJson implements LoadJsonInterface
 {
-    private const FILE_PATH = __DIR__ . '/../../../var/liste.json';
+    private const FILE_PATH = __DIR__.'/../../../var/liste.json';
     private static array $mots = [];
 
     public static function loadFile()
